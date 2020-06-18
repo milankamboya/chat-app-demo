@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import socketIOClient from 'socket.io-client';
 import Messages from '../Messages.js/Messages';
 import Input from '../Input/Input';
+import InfoBar from '../InfoBar/InfoBar';
 let socket;
 
 const Chat = ({ location }) => {
@@ -45,6 +46,8 @@ const Chat = ({ location }) => {
     <div>
       <div className="outerContainer">
         <div className="container">
+          <InfoBar room={room} />
+
           <Messages messages={messages} name={name} />
 
           <Input
