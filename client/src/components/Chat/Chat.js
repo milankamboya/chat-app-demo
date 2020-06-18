@@ -1,11 +1,12 @@
 import React from 'react';
+import './Chat.css';
 
-const Chat = () => {
-    return (
-        <div>
-            Chat
-        </div>
-    )
+const Chat = ({ location }) => {
+  return (
+    <div>
+      {location.search}
+    </div>
+  )
 }
 
 export default Chat;
