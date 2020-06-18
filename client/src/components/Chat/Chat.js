@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Chat.css';
 import queryString from 'query-string';
 import socketIOClient from 'socket.io-client';
+import Messages from '../Messages.js/Messages';
+import Input from '../Input/Input';
 let socket;
 
 const Chat = ({ location }) => {
@@ -43,17 +45,13 @@ const Chat = ({ location }) => {
     <div>
       <div className="outerContainer">
         <div className="container">
-          <form className="form">
-            <input
-              className="input"
-              type="text"
-              placeholder="type..."
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-              onKeyPress={e => e.key === 'enter' ? sendMessage(e) : null}
-            />
-            <button className="sendButtion" onClick={sendMessage}>Send</button>
-          </form>
+          <Messages messages={messages} name={name} />
+
+          <Input
+            message={message}
+            sendMessage={sendMessage}
+            setMessage={setMessage}
+          />
         </div>
       </div>
     </div>
