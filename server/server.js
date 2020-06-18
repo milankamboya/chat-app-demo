@@ -12,4 +12,16 @@ app.get('/', (req, res) => {
 const server = http.createServer(app);
 const io = socketio(server);
 
+io.on('connection', socket => {
+  console.log('new connection!!!');
+
+  socket.on('join', (message, callback) => {
+    const {name, room} = message;
+    console.log(`someone joined in ${room} as ${name}`);
+    callback();
+  });
+
+  socket.on('disconnect', () => console.log('connection gone!!!'));
+})
+
 server.listen(PORT, () => console.log(`server started successfully on ${PORT}`));
