@@ -12,7 +12,7 @@ const Input = props => {
         onChange={e => props.setMessage(e.target.value)}
         onKeyPress={e => e.key === 'Enter' ? props.sendMessage(e) : null}
       />
-      <button className="sendButtion" onClick={e => props.sendMessage(e)}>Send</button>
+      <button className="sendButton" onClick={e => props.sendMessage(e)}>Send</button>
     </form>
   )
 }
