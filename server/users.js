@@ -4,14 +4,14 @@ const addUser = ({ name, room, id }) => {
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
-  const existingUser = user.find(user => user.room === room && user.name === name);
+  const existingUser = users.find(user => user.room === room && user.name === name);
   if (existingUser) {
     return { error: 'username is taken' };
   }
 
   let user = { id, name, room };
   users.push(user);
-  return user;
+  return { user };
 };
 
 const removeUser = socketId => {
