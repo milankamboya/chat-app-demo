@@ -11,7 +11,6 @@ const Messages = ({ messages, name }) => {
           <Message message={message} name={name} />
         </div>
       })}
-
     </ScrollToBottom>
   )
 }
